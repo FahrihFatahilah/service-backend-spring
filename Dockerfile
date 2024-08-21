@@ -13,7 +13,7 @@ RUN mkdir -p $LOG_DIR
 WORKDIR $APP_HOME
 
 # Copy application JAR file into the container
-COPY target/backend-job-service-0.0.1.jar backend-job-service.jar
+COPY target/jobs-0.0.1.jar backend-job-service.jar
 
 # Set permissions for the log directory
 RUN chown -R nobody:nogroup $LOG_DIR
