@@ -1,0 +1,42 @@
+<configuration>
+    <appender name="HTTP_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/data/logs/backend-job-service/http.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SYSTEM_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/data/logs/backend-job-service/system.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPRING_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/data/logs/backend-job-service/spring.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define loggers -->
+    <logger name="org.springframework.web.client.RestTemplate" level="DEBUG" additivity="false">
+        <appender-ref ref="HTTP_FILE"/>
+    </logger>
+
+    <logger name="com.dans.jobs" level="DEBUG" additivity="false">
+        <appender-ref ref="SYSTEM_FILE"/>
+    </logger>
+
+    <logger name="org.springframework" level="DEBUG" additivity="false">
+        <appender-ref ref="SPRING_FILE"/>
+    </logger>
+
+    <!-- Root logger configuration -->
+
+    <root level="DEBUG">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="SPRING_FILE"/>
+    </root>
+</configuration>
