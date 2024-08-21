@@ -19,7 +19,7 @@ COPY target/jobs-0.0.1.jar backend-job-service.jar
 RUN chown -R nobody:nogroup $LOG_DIR
 
 # Expose application port
-EXPOSE 8080
+EXPOSE 8081
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "backend-job-service.jar"]
